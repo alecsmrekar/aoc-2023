@@ -4,11 +4,7 @@ use std::collections::HashMap;
 use utils::*;
 
 fn part1() {
-    let limits = HashMap::from([
-        ("red", 12u32),
-        ("green", 13u32),
-        ("blue", 14u32),
-    ]);
+    let limits = HashMap::from([("red", 12u32), ("green", 13u32), ("blue", 14u32)]);
 
     let mut result = 0;
     for game in get_lines_nonempty("day02") {
@@ -45,11 +41,7 @@ fn part2() {
         let num_char = *p1.split(" ").collect::<Vec<&str>>().last().unwrap();
         let mut game_num = num_char.parse::<u32>().unwrap();
         println!("{}", game);
-        let mut mins = HashMap::from([
-            ("red", 0u32),
-            ("green", 0u32),
-            ("blue", 0u32),
-        ]);
+        let mut mins = HashMap::from([("red", 0u32), ("green", 0u32), ("blue", 0u32)]);
         for draw in p2.split("; ").collect::<Vec<&str>>() {
             for ball_parts in draw.split(", ").collect::<Vec<&str>>() {
                 println!("{}", ball_parts);
@@ -61,9 +53,8 @@ fn part2() {
                 }
             }
         }
-        let mult = *mins.get("red").unwrap() *
-            *mins.get("green").unwrap() *
-            *mins.get("blue").unwrap();
+        let mult =
+            *mins.get("red").unwrap() * *mins.get("green").unwrap() * *mins.get("blue").unwrap();
         result += mult;
     }
     println!("{}", result);

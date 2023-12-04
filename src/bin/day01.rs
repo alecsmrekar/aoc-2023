@@ -30,9 +30,7 @@ fn part1() {
     println!("{}", sum);
 }
 
-
 fn part2() {
-
     let mut sum = 0;
     for mut line in get_lines("day01") {
         let orig_lin = line.clone();
@@ -87,10 +85,12 @@ fn pop_num_from_line(line: &mut String) -> Option<String> {
         let substring = line.as_str()[..index].to_string();
         let num = digits.get(substring.as_str());
         match num {
-            None => {index += 1;}
+            None => {
+                index += 1;
+            }
             Some(num_val) => {
                 *line = line.as_str()[1..].to_string();
-                return Some(num_val.to_string())
+                return Some(num_val.to_string());
             }
         }
     }
